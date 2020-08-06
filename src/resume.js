@@ -122,7 +122,7 @@ export const content = {
       "__no-header__": `
         **English** &mdash; Native language, full comprehension and speaking  
         **French** &mdash; Good comprehension and speaking  
-        **Japanese** &mdash; Basic reading comprehension
+        <!-- **Japanese** &mdash; Basic reading comprehension -->
       `,
     },
     "Awards": {
