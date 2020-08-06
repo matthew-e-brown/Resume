@@ -59,7 +59,7 @@ h1 {
 }
 
 @media only print {
-  :root { font-size: 12pt; background: none; }
+  :root { font-size: 12pt; background: none !important; }
   body { margin: 0; }
 
   a[href^="mailto:"], a[href^="tel:"] {
@@ -76,9 +76,9 @@ h1 {
   @page {
     width: 8.5in;
     height: 11in;
-    /* The margin on #page div takes care of the margins, since doing it that
-     * way lets me having things (like the h2 borders) just out into the margins
-     * of the actual @page */
+    /* The margin property on #page takes care of the left-right margins, since
+     * doing it that way lets me have things (like the h2 borders) jut out into
+     * the margins of the actual @page */
     margin: 15mm 0;
   }
 }

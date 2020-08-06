@@ -83,7 +83,12 @@ export const content = {
     },
   },
   "Working Experience": {
-    "Placements": {
+    "Full-Time": {
+      "Cybersecurity Rover &mdash; Trent University": `
+        Working with Trent IT to improve cybersecurity measures for both staff
+        and students during the COVID-19 remote-learning transition.
+        - July 2020 to Present
+      `,
       "Intern / Co-op &mdash; TD Wealth Technology Solutions": `
         Tech support for Wealth Money Movement team. Worked primarily with
         Splunk Enterprise for data monitoring and creating dashboards.
