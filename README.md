@@ -4,11 +4,16 @@ I got fed up with screwing around with styles in Microsoft Word and decided to
 use CSS for my resume instead. Then, I decided to make it with Vue because, 1) I
 wanted to use components and 2) because I can! 🥳
 
-This is actually a printable webpage which is designed to look like a document.
-As such, it is not responsive. It is verified to print properly from Chrome and
-Firefox on Windows. [In some older versions of Chrome][issue] (before 83),
-having Windows display scaling set to anything other than 100% would affect the
-margins of the printed page. Double check that you're up to date if you use this.
+This app is actually a printable webpage which is designed to look like a
+document. So, instead of exporting a PDF from Word, I simply open this site up
+and CTRL+P the whole page. Because it relies on looking like a page, it is not
+responsive. It is verified to print properly from Chrome and Firefox on Windows.
+It should also print *mostly* properly on iOS Safari and Chrome, but there is
+some font-size anomalies.
+
+[In some older versions of Chrome][issue] (before 83), having Windows display
+scaling set to anything other than 100% would affect the margins of the printed
+page. Double check that you're up to date if you use this.
 
 
 ## Usage
@@ -100,6 +105,10 @@ export const body = {
   },
 };
 ```
+
+For level three and four headings, using *`__no-header__`* as the object's key
+will allow you to have a blank header. This is useful when you only have one
+subsection for a specific section.
 
 
 #### Contact
