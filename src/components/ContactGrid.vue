@@ -1,6 +1,6 @@
 <template>
   <div id="contact">
-    <div class="contact-entry" v-for="entry in contactData" :key="entry.i">
+    <div class="contact-entry" v-for="entry in contactData" :key="entry.key">
       <i class="fa-fw" :class="entry.icon"></i>
       <a v-if="entry.url" :href="entry.url">{{ entry.display }}</a>
       <span v-else>{{ entry.display }}</span>
@@ -14,10 +14,10 @@ export default {
   props: {
     contact: { required: true, type: Object }
   },
-  data: function() {
-    return {
+  computed: {
+    contactData: function() {
       // Run through contact prop to add icons for everything
-      contactData: Object.entries(this.contact).map(([socialType, social], i) => {
+      return Object.entries(this.contact).map(([socialType, social], i) => {
         // Return with given icon if possible
         if (social.icon) return { ...social, icon: [ social.iconStyle || 'fas', social.icon ], key: i };
 
