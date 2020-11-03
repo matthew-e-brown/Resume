@@ -35,22 +35,55 @@ export const contact = {
 };
 
 export const content = {
+  "Working Experience": {
+    "Full-Time": {
+      "Intern / Co-op &mdash; TD Wealth Technology Solutions": `
+      Tech support for Wealth Money Movement team. Worked primarily with
+      Splunk Enterprise for data monitoring and creating dashboards.
+      - September 2019 to December 2019
+      `,
+      "Cybersecurity Rover &mdash; Trent University": `
+        Working with Trent IT to improve cybersecurity measures for both staff
+        and students during the COVID-19 remote-learning transition.
+        - July 2020 to September 2020
+      `,
+    },
+    "Part-Time": {
+      "Work-Study Position &mdash; Trent University": `
+        Assitant to the lab demonstrator. TA-ing and creating lab content for
+        the *Web Application Development* (COIS-3420H) course.
+        - January 2020 to April 2020
+      `,
+      "Course Content Creator &mdash; Trent University": `
+        Created lab content for *Digital World* (COIS-1010H), introduced a
+        web-based format for Trent COIS labs.
+        - July 2019 to August 2019
+      `,
+      "Course Marker &mdash; Trent University": `
+        Marked for *Programming for Computer Systems* (COIS-1020H).
+        - January 2019 to April 2019
+      `,
+      "Technology Sales Associate &mdash; Staples Canada": `
+        Sold laptops, desktops, printers, tablets, and smartphones with
+        warranties, services, and accessories.
+        - August 2016 to August 2018
+      `,
+    }
+  },
   "Skills": {
     "Programming": {
       "Web Development Specific": `
-        - Expert experience with HTML, CSS, and JavaScript
-          - Intermediate experience with Flexbox and CSS Grid
+        - Expert with HTML, CSS, and JavaScript
+          - Experienced with Flexbox and CSS Grid
           - ECMAScript ES7+ knowhow and understanding
-        - Beginner with VueJS (this resume is a PDF print of
+        - Experienced with VueJS (this resume is a PDF print of
           [a Vue app](https://github.com/matthew-e-brown/Resume)!)
-        - Experience with JavaScript for NodeJS/Server-side
-          - Beginner with ExpressJS
-        - Experience and familiarity with PHP
+        - Experienced with JavaScript for NodeJS/Server-side (ExpressJS)
+        - Familiar with vanilla PHP
       `,
       "General": `
         - Two most skilled languages are JavaScript and Python
         - Intermediate experience working with Python for scripting
-          - Intermediate Experience with Pygame
         - Experience with Bash/Shell scripting
         - Moderately experienced with C and C#
         - Beginner experience and moderate familiarity with Java
@@ -81,41 +114,6 @@ export const content = {
           - RDBMS, SQL, query optimization, relational algebra
       `,
     },
-  },
-  "Working Experience": {
-    "Full-Time": {
-      "Cybersecurity Rover &mdash; Trent University": `
-        Working with Trent IT to improve cybersecurity measures for both staff
-        and students during the COVID-19 remote-learning transition.
-        - July 2020 to Present
-      `,
-      "Intern / Co-op &mdash; TD Wealth Technology Solutions": `
-        Tech support for Wealth Money Movement team. Worked primarily with
-        Splunk Enterprise for data monitoring and creating dashboards.
-        - September 2019 to December 2019
-      `,
-    },
-    "Part-Time": {
-      "Work-Study Position &mdash; Trent University": `
-        Assitant to the lab demonstrator. TA-ing and creating lab content for
-        the *Web Application Development* (COIS-3420H) course.
-        - January 2020 to April 2020
-      `,
-      "Course Content Creator &mdash; Trent University": `
-        Created lab content for *Digital World* (COIS-1010H), introduced a
-        web-based format for Trent COIS labs.
-        - July 2019 to August 2019
-      `,
-      "Course Marker &mdash; Trent University": `
-        Marked for *Programming for Computer Systems* (COIS-1020H).
-        - January 2019 to April 2019
-      `,
-      "Technology Sales Associate &mdash; Staples Canada": `
-        Sold laptops, desktops, printers, tablets, and smartphones with
-        warranties, services, and accessories.
-        - August 2016 to August 2018
-      `,
-    }
   },
   "Other Achievements": {
     "Languages": {
