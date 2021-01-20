@@ -4,12 +4,11 @@
       <h3 v-html="header"></h3>
     </div>
     <div>
-      <template v-for="([subheader, body], i) in Object.entries(content)">
+      <template v-for="({ header: subheader, body }, i) in content">
         <h4 v-if="!noHeader(subheader)" v-html="subheader" :key="`h4-${i}`"></h4>
         <VueMarkdown
           :key="i"
           :source="body"
-          :prerender="prerender"
           :anchorAttributes="{ target: '_blank' }"
           :linkify="false"
           :breaks="false"
@@ -22,7 +21,6 @@
 </template>
 
 <script>
-import dedent from 'dedent';
 import VueMarkdown from 'vue-markdown';
 
 export default {
@@ -31,10 +29,9 @@ export default {
   props: {
     // Not going to be an ID this time, no regex needed:
     header: { required: true, type: String },
-    content: { required: true, type: Object }
+    content: { required: true, type: Array }
   },
   methods: {
-    prerender: str => dedent(str),
     noHeader: str => str == '__no-header__'
   }
 }

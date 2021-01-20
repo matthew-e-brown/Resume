@@ -1,7 +1,7 @@
 <template>
   <main>
     <ResumeSection
-      v-for="([header, section], i) in Object.entries(resume)"
+      v-for="([ header, section ], i) in Object.entries(resume)"
       :title="header"
       :key="i"
     >

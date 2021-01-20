@@ -7,16 +7,16 @@
 </template>
 
 <script>
-import { name, contact, titleColor, backgroundColor } from '@/resume';
+import { name, contact, colors } from '@/resume';
 import ContactGrid from '@/components/ContactGrid';
 
 export default {
   name: 'Page',
   components: { ContactGrid },
   data: function() {
-    return { name, contact, titleColor }
+    return { name, contact, titleColor: colors.title }
   },
-  beforeMount: () => document.documentElement.style.backgroundColor = backgroundColor
+  beforeMount: () => document.documentElement.style.backgroundColor = colors.background
 }
 </script>
 

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { headerColor } from '@/resume';
+import { colors } from '@/resume';
 
 export default {
   name: 'ResumeSection',
@@ -15,7 +15,7 @@ export default {
   },
   data: function() {
     return {
-      color: headerColor,
+      color: colors.header,
       header: this.title,
       ID: this.title.toLowerCase().replace(/[^\w]+/g, '-').replace(/[^\w]+$/g, '')
         || `header-${this.$vnode.key + 1}`
