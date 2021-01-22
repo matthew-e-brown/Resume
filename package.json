@@ -15,7 +15,7 @@
   },
   "homepage": "https://matthew-e-brown.github.io/Resume/",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
