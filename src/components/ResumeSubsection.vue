@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style scoped>
-.subsection {
+/* .subsection {
   break-inside: avoid;
   break-before: auto;
   break-after: auto;
@@ -46,7 +46,7 @@ export default {
 
 .subsection:first-of-type {
   break-before: avoid-page;
-}
+} */
 
 .subsection:not(.no-header) {
   display: grid;

@@ -25,9 +25,9 @@ export default {
 </script>
 
 <style scoped>
-section {
+/* section {
   break-inside: avoid-page;
-}
+} */
 
 h2 {
   font-family: 'Catamaran', sans-serif;

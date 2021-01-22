@@ -20,16 +20,50 @@ contact:
   mobile:
     url: 'tel:+16138498270'
     display: +1 (613) 849-8270
-  # stackoverflow:
-  #   url: 'https://stackoverflow.com/users/10549827/matthew-e-brown'
-  #   display: /matthew-e-brown
-  # website:
-  #   url: 'https://matthew-brown.net'
-  #   display: matthew-brown.net
-  #   icon: 'fa-globe'
-  #   iconStyle: far
+  stackoverflow:
+    url: 'https://stackoverflow.com/users/10549827/matthew-e-brown'
+    display: /matthew-e-brown
+  website:
+    url: 'https://matthew-brown.net'
+    display: matthew-brown.net
+    icon: 'fa-globe'
+    iconStyle: far
 
 sections:
+  - header: Skills
+    subsections:
+      - header: Programming
+        entries:
+          - title: Web Development Specific
+            body: |-
+              - Expert with HTML, CSS, and JavaScript
+                - Experienced with Flexbox and CSS Grid
+                - ECMAScript ES7 and newer
+              - Experienced with Vue (this resume is a PDF print of
+                [a Vue 2 app](https://github.com/matthew-e-brown/Resume)!)
+              - Experienced with JavaScript for NodeJS/Server-side (ExpressJS)
+              - Experienced with vanilla PHP
+
+          - title: General
+            body: |-
+              - Two most skilled languages are JavaScript and Python
+              - Intermediate experience working with Python for scripting
+              - Experience with Bash/Shell scripting
+              - Moderately experienced with C and C#
+              - Beginner experience and moderate familiarity with Java
+
+      - header: Software
+        entries:
+          - title: Linux, Git, GitHub
+            body: |-
+              - Experience Linux VMs/webservers (Ubuntu, CentOS 7, LAMP)
+              - Very comfortable on the command line, including with Git
+              - Experience working with GitHub for collaboration
+
+          - title: Other Software
+            body: |-
+              - Atlassian, Microsoft Office, and Creative Cloud suites
+
   - header: Working Experience
     subsections:
       - header: Full-Time
@@ -38,7 +72,8 @@ sections:
             body: |-
               Built the website for the 6 Annual IIES Science and Policy
               Workshop, to be re-used for future years
-              ([iiesworkshops.com](https://iiesworkshops.com)).
+              ([iiesworkshops.com](https://iiesworkshops.com)). Worked with
+              vanilla PHP, vanilla JS, and Sass.
               - October 2020 to January 2021
 
           - title: Intern / Co-op &mdash; TD Wealth Technology Solutions
@@ -93,40 +128,6 @@ sections:
                 - Discrete-event and Monte-Carlo simulations in Python
               - *Database Management* (COIS-3400H)
                 - RDBMS, SQL, query optimization, relational algebra
-
-  - header: Skills
-    subsections:
-      - header: Programming
-        entries:
-          - title: Web Development Specific
-            body: |-
-              - Expert with HTML, CSS, and JavaScript
-                - Experienced with Flexbox and CSS Grid
-                - ECMAScript ES7 and newer
-              - Experienced with Vue (this resume is a PDF print of
-                [a Vue 2 app](https://github.com/matthew-e-brown/Resume)!)
-              - Experienced with JavaScript for NodeJS/Server-side (ExpressJS)
-              - Experienced with vanilla PHP
-
-          - title: General
-            body: |-
-              - Two most skilled languages are JavaScript and Python
-              - Intermediate experience working with Python for scripting
-              - Experience with Bash/Shell scripting
-              - Moderately experienced with C and C#
-              - Beginner experience and moderate familiarity with Java
-
-      - header: Software
-        entries:
-          - title: Linux, Git, GitHub
-            body: |-
-              - Experience Linux VMs/webservers (Ubuntu, CentOS 7, LAMP)
-              - Very comfortable on the command line, including with Git
-              - Experience working with GitHub for collaboration
-
-          - title: Other Software
-            body: |-
-              - Atlassian, Microsoft Office, and Creative Cloud suites
 
   - header: Other Achievements
     subsections:
