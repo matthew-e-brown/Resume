@@ -34,11 +34,19 @@ sections:
     subsections:
       - header: Full-Time
         entries:
+          - title: Fullstack Web Developer &mdash; International Institute for Environmental Studies (IIES)
+            body: |-
+              Built the website for the 6 Annual IIES Science and Policy
+              Workshop, to be re-used for future years
+              ([iiesworkshops.com](https://iiesworkshops.com)).
+              - October 2020 to January 2021
+
           - title: Intern / Co-op &mdash; TD Wealth Technology Solutions
             body: |-
               Tech support for Wealth Money Movement team. Worked primarily with
               Splunk Enterprise for data monitoring and creating dashboards.
               - September 2019 to December 2019
+
           - title: Cybersecurity Rover &mdash; Trent University
             body: |-
               Working with Trent IT to improve cybersecurity measures for both
@@ -70,6 +78,22 @@ sections:
               warranties, services, and accessories.
               - August 2016 to August 2018
 
+  - header: Education
+    subsections:
+      - header: 2018-pres.
+        entries:
+          - title: Trent University
+            body: |-
+              B.Sc (Hon): Computer Science with Co-op &mdash; 86.28% average
+              - *Systems Programming* (COIS-3380H)
+                - C programming and bash scripting
+              - *Web Application Development* (COIS-3420H)
+                - Backend, front-end, no-framework web-dev (full-stack)
+              - *Modelling and Simulation* (COIS-4470H)
+                - Discrete-event and Monte-Carlo simulations in Python
+              - *Database Management* (COIS-3400H)
+                - RDBMS, SQL, query optimization, relational algebra
+
   - header: Skills
     subsections:
       - header: Programming
@@ -78,11 +102,11 @@ sections:
             body: |-
               - Expert with HTML, CSS, and JavaScript
                 - Experienced with Flexbox and CSS Grid
-                - ECMAScript ES7+ knowhow and understanding
-              - Experienced with VueJS (this resume is a PDF print of
-                [a Vue app](https://github.com/matthew-e-brown/Resume)!)
+                - ECMAScript ES7 and newer
+              - Experienced with Vue (this resume is a PDF print of
+                [a Vue 2 app](https://github.com/matthew-e-brown/Resume)!)
               - Experienced with JavaScript for NodeJS/Server-side (ExpressJS)
-              - Familiar with vanilla PHP
+              - Experienced with vanilla PHP
 
           - title: General
             body: |-
@@ -103,22 +127,6 @@ sections:
           - title: Other Software
             body: |-
               - Atlassian, Microsoft Office, and Creative Cloud suites
-
-  - header: Education
-    subsections:
-      - header: 2018-pres.
-        entries:
-          - title: Trent University
-            body: |-
-              B.Sc (Hon): Computer Science with Co-op &mdash; 86.25% average
-              - *Systems Programming* (COIS-3380H)
-                - C programming and bash scripting
-              - *Web Application Development* (COIS-3420H)
-                - Backend, front-end, no-framework web-dev (full-stack)
-              - *Modelling and Simulation* (COIS-4470H)
-                - Discrete-event and Monte-Carlo simulations in Python
-              - *Database Management* (COIS-3400H)
-                - RDBMS, SQL, query optimization, relational algebra
 
   - header: Other Achievements
     subsections:
