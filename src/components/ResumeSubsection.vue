@@ -4,7 +4,7 @@
       <h3 v-html="header"></h3>
     </div>
     <div>
-      <template v-for="({ header: subheader, body }, i) in content">
+      <template v-for="({ title: subheader, body }, i) in content">
         <h4 v-if="!noHeader(subheader)" v-html="subheader" :key="`h4-${i}`"></h4>
         <VueMarkdown
           :key="i"

@@ -29,100 +29,111 @@ contact:
   #   icon: 'fa-globe'
   #   iconStyle: far
 
-content:
-  Working Experience:
-    Full-Time:
-      - header: Intern / Co-op &mdash; TD Wealth Technology Solutions
-        body: |-
-          Tech support for Wealth Money Movement team. Worked primarily with
-          Splunk Enterprise for data monitoring and creating dashboards.
-          - September 2019 to December 2019
+sections:
+  - header: Working Experience
+    subsections:
+      - header: Full-Time
+        entries:
+          - title: Intern / Co-op &mdash; TD Wealth Technology Solutions
+            body: |-
+              Tech support for Wealth Money Movement team. Worked primarily with
+              Splunk Enterprise for data monitoring and creating dashboards.
+              - September 2019 to December 2019
+          - title: Cybersecurity Rover &mdash; Trent University
+            body: |-
+              Working with Trent IT to improve cybersecurity measures for both
+              staff and students during the COVID-19 remote-learning transition.
+              - July 2020 to September 2020
 
-      - header: Cybersecurity Rover &mdash; Trent University
-        body: |-
-          Working with Trent IT to improve cybersecurity measures for both staff
-          and students during the COVID-19 remote-learning transition.
-          - July 2020 to September 2020
+      - header: Part-Time
+        entries:
+          - title: Work-Study Position &mdash; Trent University
+            body: |-
+              Assitant to the lab demonstrator. TA-ing and creating lab content
+              for the *Web Application Development* (COIS-3420H) course.
+              - January 2020 to April 2020
 
-    Part-Time:
-      - header: Work-Study Position &mdash; Trent University
-        body: |-
-          Assitant to the lab demonstrator. TA-ing and creating lab content for
-          the *Web Application Development* (COIS-3420H) course.
-          - January 2020 to April 2020
+          - title: Course Content Creator &mdash; Trent University
+            body: |-
+              Created lab content for *Digital World* (COIS-1010H), introduced a
+              web-based format for Trent COIS labs.
+              - July 2019 to August 2019
 
-      - header: Course Content Creator &mdash; Trent University
-        body: |-
-          Created lab content for *Digital World* (COIS-1010H), introduced a
-          web-based format for Trent COIS labs.
-          - July 2019 to August 2019
+          - title: Course Marker &mdash; Trent University
+            body: |-
+              Marked for *Programming for Computer Systems* (COIS-1020H).
+              - January 2019 to April 2019
 
-      - header: Course Marker &mdash; Trent University
-        body: |-
-          Marked for *Programming for Computer Systems* (COIS-1020H).
-          - January 2019 to April 2019
+          - title: Technology Sales Associate &mdash; Staples Canada
+            body: |-
+              Sold laptops, desktops, printers, tablets, and smartphones with
+              warranties, services, and accessories.
+              - August 2016 to August 2018
 
-      - header: Technology Sales Associate &mdash; Staples Canada
-        body: |-
-          Sold laptops, desktops, printers, tablets, and smartphones with
-          warranties, services, and accessories.
-          - August 2016 to August 2018
+  - header: Skills
+    subsections:
+      - header: Programming
+        entries:
+          - title: Web Development Specific
+            body: |-
+              - Expert with HTML, CSS, and JavaScript
+                - Experienced with Flexbox and CSS Grid
+                - ECMAScript ES7+ knowhow and understanding
+              - Experienced with VueJS (this resume is a PDF print of
+                [a Vue app](https://github.com/matthew-e-brown/Resume)!)
+              - Experienced with JavaScript for NodeJS/Server-side (ExpressJS)
+              - Familiar with vanilla PHP
 
-  Skills:
-    Programming:
-      - header: Web Development Specific
-        body: |-
-          - Expert with HTML, CSS, and JavaScript
-            - Experienced with Flexbox and CSS Grid
-            - ECMAScript ES7+ knowhow and understanding
-          - Experienced with VueJS (this resume is a PDF print of
-            [a Vue app](https://github.com/matthew-e-brown/Resume)!)
-          - Experienced with JavaScript for NodeJS/Server-side (ExpressJS)
-          - Familiar with vanilla PHP
+          - title: General
+            body: |-
+              - Two most skilled languages are JavaScript and Python
+              - Intermediate experience working with Python for scripting
+              - Experience with Bash/Shell scripting
+              - Moderately experienced with C and C#
+              - Beginner experience and moderate familiarity with Java
 
-      - header: General
-        body: |-
-          - Two most skilled languages are JavaScript and Python
-          - Intermediate experience working with Python for scripting
-          - Experience with Bash/Shell scripting
-          - Moderately experienced with C and C#
-          - Beginner experience and moderate familiarity with Java
+      - header: Software
+        entries:
+          - title: Linux, Git, GitHub
+            body: |-
+              - Experience Linux VMs/webservers (Ubuntu, CentOS 7, LAMP)
+              - Very comfortable on the command line, including with Git
+              - Experience working with GitHub for collaboration
 
-    Software:
-      - header: Linux, Git, GitHub
-        body: |-
-          - Experience Linux VMs/webservers (Ubuntu, CentOS 7, LAMP)
-          - Very comfortable on the command line, including with Git
-          - Experience working with GitHub for collaboration
+          - title: Other Software
+            body: |-
+              - Atlassian, Microsoft Office, and Creative Cloud suites
 
-      - header: Other Software
-        body: |-
-          - Atlassian, Microsoft Office, and Creative Cloud suites
+  - header: Education
+    subsections:
+      - header: 2018-pres.
+        entries:
+          - title: Trent University
+            body: |-
+              B.Sc (Hon): Computer Science with Co-op &mdash; 86.25% average
+              - *Systems Programming* (COIS-3380H)
+                - C programming and bash scripting
+              - *Web Application Development* (COIS-3420H)
+                - Backend, front-end, no-framework web-dev (full-stack)
+              - *Modelling and Simulation* (COIS-4470H)
+                - Discrete-event and Monte-Carlo simulations in Python
+              - *Database Management* (COIS-3400H)
+                - RDBMS, SQL, query optimization, relational algebra
 
-  Education:
-    2018-pres.:
-      - header: Trent University
-        body: |-
-          B.Sc (Hon): Computer Science with Co-op &mdash; 86.25% average
-          - *Systems Programming* (COIS-3380H)
-            - C programming and bash scripting
-          - *Web Application Development* (COIS-3420H)
-            - Backend, front-end, no-framework web-dev (full-stack)
-          - *Modelling and Simulation* (COIS-4470H)
-            - Discrete-event and Monte-Carlo simulations in Python
-          - *Database Management* (COIS-3400H)
-            - RDBMS, SQL, query optimization, relational algebra
+  - header: Other Achievements
+    subsections:
+      - header: Languages
+        entries:
+          - title: __no-header__
+            body: |-
+              **English** &mdash; Native language, full comprehension and
+              speaking  
+              **French** &mdash; Good comprehension and speaking  
+              <!-- **Japanese** &mdash; Basic reading comprehension -->
 
-  Other Achievements:
-    Languages:
-      - header: __no-header__
-        body: |-
-          **English** &mdash; Native language, full comprehension and speaking  
-          **French** &mdash; Good comprehension and speaking  
-          <!-- **Japanese** &mdash; Basic reading comprehension -->
-
-    Awards:
-      - header: D.E.L.F. / D.A.L.F. B1 Certified
-        body: |-
-          Officially bilingual, certified by the <span lang="fr">ministère de
-          l'Éducation et de la Jeunesse</span> in France.
+      - header: Awards
+        entries:
+          - title: D.E.L.F. / D.A.L.F. B1 Certified
+            body: |-
+              Officially bilingual, certified by the <span lang="fr">ministère
+              de l'Éducation et de la Jeunesse</span> in France.

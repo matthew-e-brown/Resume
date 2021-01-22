@@ -25,7 +25,6 @@
     "@fortawesome/fontawesome-pro": "^5.13.1",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "dedent": "^0.7.0",
     "raw-loader": "^4.0.1",
     "typeface-catamaran": "0.0.72",
     "typeface-open-sans": "0.0.75",
