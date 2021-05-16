@@ -1,5 +1,5 @@
 import path from 'path';
-import { readFile, rm, mkdir, writeFile } from 'fs/promises';
+import { readFile, readdir, rm, mkdir, writeFile } from 'fs/promises';
 
 import sass from 'sass';
 import yaml from 'yaml';
@@ -71,7 +71,7 @@ const getPartials = async (rawFile: string, existing: string[]) => {
  */
 const renderView = async (target: ViewName) => {
   // Get the view
-  const targetView = target === ViewName.Resume
+  const targetView = target == ViewName.Resume
     ? path.join(__dirname, 'src/views/index.hbs')
     : path.join(__dirname, 'src/views/cover-letter.hbs');
 
@@ -124,7 +124,7 @@ const renderView = async (target: ViewName) => {
 }
 
 
-const make = async (target: ViewName) => {
+const outputView = async (target: ViewName) => {
   const rendered = await renderView(target);
   const output = html_beautify(rendered, {
     eol: '\n',
@@ -135,18 +135,52 @@ const make = async (target: ViewName) => {
     extra_liners: [ 'head', 'body', '/html', 'section' ]
   });
 
-  const name = target === ViewName.Resume ? 'index.html' : 'cover-letter.html';
+  const name = target == ViewName.Resume ? 'index.html' : 'cover-letter.html';
   await writeFile(path.join(distPath, name), output, { encoding: 'utf-8' });
 }
 
 
 /**
+ * Builds all Sass files in the /src/styles folder.
+ * @param compressed Whether or not the output should be compressed.
+ */
+const outputSass = async (compressed: boolean) => {
+  const files = await readdir(path.join(__dirname, 'src/styles'));
+
+  await Promise.all(files.filter(f => !f.startsWith('_')).map(async name => {
+    const file = path.join(__dirname, 'src/styles', name);
+    const parsed = path.parse(name);
+
+    const outFile = `styles/${parsed.name}.min.css`;
+    const mapFile = outFile + '.map';
+
+    try {
+      const result = sass.renderSync({
+        file, outFile, sourceMap: true,
+        outputStyle: compressed ? 'compressed' : 'expanded'
+      });
+  
+      await Promise.all([
+        writeFile(path.join(distPath, outFile), result.css),
+        writeFile(path.join(distPath, mapFile), result.map)
+      ]);
+    } catch (error) {
+      console.error(`\n${error.formatted}\n`);
+    }
+
+  }));
+}
+
+
+/**
  * Main function
+ * @param argv The argv passed to node, with the first two sliced off.
  */
 const main = async (argv: string[]) => {
   // Remove the /dist/ directory first
   await rm(distPath, { recursive: true, force: true });
   await mkdir(distPath, { recursive: true });
+  await mkdir(path.join(distPath, 'styles'), { recursive: true });
 
   if (
     argv.length !== 2 ||
@@ -162,16 +196,17 @@ const main = async (argv: string[]) => {
   const modeArg = argv[0] as 'watch' | 'build';
   const fileArg = argv[1] as 'index' | 'cover' | 'both';
 
-  const buildHandlebars = () => {
-    if (fileArg == 'index') return make(ViewName.Resume);
-    else if (fileArg == 'cover') return make(ViewName.CoverLetter);
-    else return Promise.all([
-      make(ViewName.Resume),
-      make(ViewName.CoverLetter)
+  const buildHandlebars = async () => {
+    if (fileArg == 'index') await outputView(ViewName.Resume);
+    else if (fileArg == 'cover') await outputView(ViewName.CoverLetter);
+    else await Promise.all([
+      outputView(ViewName.Resume),
+      outputView(ViewName.CoverLetter)
     ]);
   }
 
-  await buildHandlebars();
+  console.log("Building 'src' directory...");
+  await Promise.all([ buildHandlebars(), outputSass(modeArg == 'build') ]);
 
   if (modeArg == 'build') console.log("Done!");
   else {
@@ -188,19 +223,18 @@ const main = async (argv: string[]) => {
     });
 
     sentinel.on('change', async file => {
-      if (path.dirname(file) === 'styles') {
-        // rebuild sass
-      }
-
-      else {
-        console.log(`${path.basename(file)} changed. Rebuilding...`);
+      if (path.basename(path.dirname(file)) == 'styles') {
+        console.log(`${path.basename(file)} changed. Recompiling Sass...`)
+        await outputSass(false);
+      } else {
+        console.log(`${path.basename(file)} changed. Rebuilding views...`);
         await buildHandlebars();
       }
     });
 
-    process.on('SIGINT', () => {
-      sentinel.close();
-    });
+    process.on('SIGINT', (() => {
+      sentinel.close()
+    }).bind(null));
   }
 
 }

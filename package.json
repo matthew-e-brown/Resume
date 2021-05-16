@@ -19,7 +19,7 @@
   "scripts": {
     "watch": "ts-node compile.ts watch",
     "build": "ts-node compile.ts build",
-    "deploy": "npm run build:index && gh-pages -d dist/index"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@types/js-beautify": "^1.13.1",
