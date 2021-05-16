@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": [ "es2020" ],
+    "target": "es2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "esModuleInterop": true
+  },
+  "include": [ "compiler/**/*.ts", "compiler.ts" ],
+  "exclude": [ "node_modules" ]
+}
