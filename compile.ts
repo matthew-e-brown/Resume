@@ -165,13 +165,14 @@ const outputView = async (target: ViewName) => {
 
 /**
  * Builds all Sass files in the /src/styles folder.
- * @param compressed Whether or not the output should be compressed.
+ * @param isWatchMode Whether or not the output should be compressed, among
+ * other tweaks.
  */
-const outputSass = async (compressed: boolean) => {
+const outputSass = async (isWatchMode: boolean) => {
   const files = await readdir(path.join(__dirname, 'src/styles'));
 
   await Promise.all(files.filter(f => !f.startsWith('_')).map(async name => {
-    const file = path.join(__dirname, 'src/styles', name);
+    const file = path.join('src/styles', name);
     const parsed = path.parse(name);
 
     const outFile = `styles/${parsed.name}.min.css`;
@@ -179,13 +180,17 @@ const outputSass = async (compressed: boolean) => {
 
     try {
       const result = sass.renderSync({
-        file, outFile, sourceMap: true,
-        outputStyle: compressed ? 'compressed' : 'expanded'
+        file,
+        ...(isWatchMode && { outFile }),
+        sourceMap: isWatchMode,
+        outputStyle: isWatchMode ? 'expanded' : 'compressed'
       });
-  
+
       await Promise.all([
         writeFile(path.join(distPath, outFile), result.css),
-        writeFile(path.join(distPath, mapFile), result.map)
+        isWatchMode
+          ? writeFile(path.join(distPath, mapFile), result.map)
+          : Promise.resolve()
       ]);
     } catch (error) {
       console.error(`\n${error.formatted}\n`);
@@ -229,7 +234,7 @@ const main = async (argv: string[]) => {
   }
 
   console.log("Building 'src' directory...");
-  await Promise.all([ buildHandlebars(), outputSass(modeArg == 'build') ]);
+  await Promise.all([ buildHandlebars(), outputSass(modeArg == 'watch') ]);
 
   if (modeArg == 'build') console.log("Done!");
   else {

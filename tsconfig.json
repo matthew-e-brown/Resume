@@ -9,6 +9,6 @@
     "preserveConstEnums": true,
     "esModuleInterop": true
   },
-  "include": [ "compile.ts" ],
+  "include": [ "compile.ts", "src/**/*.ts" ],
   "exclude": [ "node_modules" ]
 }
