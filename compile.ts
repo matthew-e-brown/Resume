@@ -18,6 +18,8 @@ const resumeDataPath = path.join(__dirname, 'src/data/resume.yml');
 const coverDataPath = path.join(__dirname, 'src/data/cover-letter.yml');
 // File which contains the markdown body of the cover letter.
 const coverBodyPath = path.join(__dirname, 'src/data/cover-letter.md');
+// Folder which contains the helpers to register when rendering
+const helperPath = path.join(__dirname, 'src/helpers');
 
 // The folder to output things to.
 const distPath = path.join(__dirname, 'dist');
@@ -70,6 +72,22 @@ const getPartials = async (rawFile: string, existing: string[]) => {
  * @returns An HTML of the completed, rendered view.
  */
 const renderView = async (target: ViewName) => {
+
+  // Check the helpers folder and add any that are there. Do this first, as
+  // other pieces may depend on helpers
+  const helperFiles = await readdir(helperPath);
+  const helpers = await Promise.all(
+    helperFiles.filter(f => !f.startsWith('_')).map(async name => {
+      const helper = path.parse(name).name;
+      const file = path.join(helperPath, helper);
+
+      const { default: func } = await import(file);
+      handlebars.registerHelper(helper, func);
+
+      return helper; // return name to add to list
+    })
+  );
+
   // Get the view
   const targetView = target == ViewName.Resume
     ? path.join(__dirname, 'src/views/index.hbs')
@@ -77,7 +95,7 @@ const renderView = async (target: ViewName) => {
 
   const rawFile = await read(targetView);
 
-  // Render its partials
+  // Compile and register its partials
   const partials: string[] = [];
   await getPartials(rawFile, partials);
 
@@ -120,7 +138,12 @@ const renderView = async (target: ViewName) => {
     data = { ...data, ...coverData, body: coverBody };
   }
 
-  return template(data);
+  const output = template(data);
+
+  partials.forEach(name => handlebars.unregisterPartial(name));
+  helpers.forEach(name => handlebars.unregisterHelper(name));
+
+  return output;
 }
 
 
