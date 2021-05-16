@@ -6,6 +6,7 @@ import yaml from 'yaml';
 import marked from 'marked';
 import handlebars from 'handlebars';
 import { html_beautify } from 'js-beautify';
+import chokidar from 'chokidar';
 
 const enum ViewName { Resume, CoverLetter };
 
@@ -138,28 +139,71 @@ const make = async (target: ViewName) => {
   await writeFile(path.join(distPath, name), output, { encoding: 'utf-8' });
 }
 
+
 /**
  * Main function
  */
-(async () => {
+const main = async (argv: string[]) => {
   // Remove the /dist/ directory first
   await rm(distPath, { recursive: true, force: true });
   await mkdir(distPath, { recursive: true });
 
-  switch (process.argv[2] as 'index' | 'cover' | 'both') {
-    case 'index':
-      await make(ViewName.Resume);
-      break;
-    case 'cover':
-      await make(ViewName.CoverLetter);
-      break;
-    case 'both':
-      await Promise.all([
-        make(ViewName.Resume),
-        make(ViewName.CoverLetter)
-      ]);
-      break;
+  if (
+    argv.length !== 2 ||
+    (argv[0] !== 'watch' && argv[0] !== 'build') ||
+    (argv[1] !== 'index' && argv[1] !== 'cover' && argv[1] !== 'both')
+  ) {
+    console.error(
+      "Incorrect arguments. Should be in the form of:\n" +
+      "npm run {watch|build} -- {index|cover|both}"
+    );
   }
 
-  console.log('Done!');
-})();
+  const modeArg = argv[0] as 'watch' | 'build';
+  const fileArg = argv[1] as 'index' | 'cover' | 'both';
+
+  const buildHandlebars = () => {
+    if (fileArg == 'index') return make(ViewName.Resume);
+    else if (fileArg == 'cover') return make(ViewName.CoverLetter);
+    else return Promise.all([
+      make(ViewName.Resume),
+      make(ViewName.CoverLetter)
+    ]);
+  }
+
+  await buildHandlebars();
+
+  if (modeArg == 'build') console.log("Done!");
+  else {
+
+    /**
+     * Just need a basic watcher. Nothing fancy. Will just re-build all views
+     * when any file changes. I'll at least split up Sass and Handlebars,
+     * though.
+     */
+
+    console.log("Watching 'src' directory for changes...");
+    const sentinel = chokidar.watch(path.join(__dirname, 'src'), {
+      ignoreInitial: false
+    });
+
+    sentinel.on('change', async file => {
+      if (path.dirname(file) === 'styles') {
+        // rebuild sass
+      }
+
+      else {
+        console.log(`${path.basename(file)} changed. Rebuilding...`);
+        await buildHandlebars();
+      }
+    });
+
+    process.on('SIGINT', () => {
+      sentinel.close();
+    });
+  }
+
+}
+
+
+main(process.argv.splice(2));
