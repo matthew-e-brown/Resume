@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head-metadata }}
+  <title>{{ name }} | Resume</title>
+</head>
+<body>
+  {{> header }}
+
+  {{#each sections }}
+    <section id="{{ make_section_id }}">
+      <h2 id="{{ make_header_id }}">{{ header }}</h2>
+      {{#each subsections }}
+        <div class="subsection">{{> subsection }}</div>
+      {{/each}}
+    </section>
+  {{/each}}
+
+</body>
+</html>

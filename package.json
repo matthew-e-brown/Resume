@@ -5,40 +5,34 @@
     "email": "matthew.e.brown.17@gmail.com",
     "url": "https://matthew-brown.net"
   },
-  "description": "A VueJS app to make a pretty resume out of some resume data.",
+  "description": "Matthew Brown's resume",
   "repository": {
     "type": "git",
-    "url": "https://github.com/matthew-e-brown/Resume.git"
+    "url": "https://github.com/matthew-e-brown/resume.git"
   },
   "bugs": {
-    "url": "https://github.com/matthew-e-brown/Resume/issues"
+    "url": "https://github.com/matthew-e-brown/resume/issues"
   },
-  "homepage": "https://matthew-e-brown.github.io/Resume/",
+  "homepage": "https://github.com/matthew-e-brown/resume#readme",
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "deploy": "npm run build && gh-pages -d dist"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.13.1",
-    "babel-runtime": "^6.26.0",
-    "core-js": "^3.6.5",
-    "raw-loader": "^4.0.1",
-    "typeface-catamaran": "0.0.72",
-    "typeface-open-sans": "0.0.75",
-    "vue": "^2.6.11",
-    "vue-markdown": "^2.2.4",
-    "vue-router": "^3.2.0"
+    "watch": "ts-node compile.ts watch",
+    "build": "ts-node compile.ts build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-router": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
-    "gh-pages": "^3.1.0",
-    "prerender-spa-plugin": "^3.4.0",
-    "vue-cli-plugin-yaml": "^1.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "@types/js-beautify": "^1.13.1",
+    "@types/marked": "^2.0.2",
+    "@types/sass": "^1.16.0",
+    "@types/yaml": "^1.9.7",
+    "chokidar": "^3.5.1",
+    "handlebars": "^4.7.7",
+    "js-beautify": "^1.13.13",
+    "marked": "^2.0.3",
+    "sass": "^1.32.13",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "yaml": "^1.10.2"
   }
 }

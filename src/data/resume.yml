@@ -1,0 +1,140 @@
+---
+
+sections:
+  - header: Skills
+    subsections:
+
+      - header: Programming
+        entries:
+
+          - title: Web Development Specific
+            body: |-
+              - Expert with HTML, CSS, JavaScript
+                - Experienced Flexbox and CSS Grid
+                - Caught up with ES2019
+                - Sass as well as CSS; TypeScript as well as JavaScript
+              - Intermediate with Vue 2 and 3 (including with the Composition
+                API)
+              - Experienced with vanilla PHP
+
+          - title: General
+            body: |-
+              - Most skilled language is JavaScript, followed by Python
+              - Comfortable with low-level C programming
+              - Experienced with Bash/Shell scripting
+              - Other languages include C# and Java
+
+      - header: Software
+        entries:
+
+          - title: Linux, Git, GitHub
+            body: |-
+              - Experience working with Linux VMs/webservers (Ubuntu, CentOS,
+                LAMP)
+              - Very comfortable on the command-line, including with Git
+              - Experience using GitHub for collaborative purposes
+
+          - title: Other Software
+            body: |-
+              - Atlassian, Office, and Creative Cloud suites
+
+  - header: Working Experience
+    subsections:
+
+      - header: Full-time
+        entries:
+
+          - title: Full-stack Web Developer &mdash; International Institute for Environmental Studies (IIES)
+            body: |-
+              Built the website for the 6th Annual IIES Science and Policy
+              Workshop, to be re-used in future years
+              ([iiesworkshops.com](https://iiesworkshops.com)). Made with
+              vanilla PHP, vanilla JS, and Sass.
+              - October 2020 to January 2021
+
+          - title: Intern / Co-op &mdash; TD Wealth Technology Solutions
+            body: |-
+              Tech support for the Wealth Money Movement (WMM) team. Worked
+              primarily with Splunk Enterprise for system monitoring and oversaw
+              creation of several status dashboards.
+              - September 2019 to December 2019
+
+          - title: Cybersecurity Rover &mdash; Trent University
+            body: |-
+              Worked with Trent IT to improve cybersecurity measures for both
+              staff and students during the transition to remote-learning during
+              COVID-19.
+              - July 2020 to September 2020
+
+      - header: Part-time
+        entries:
+
+          - title: Work-study Position &mdash; Trent University
+            body: |-
+              Assistant to the lab demonstrator. Assisting in labs as a TA and
+              creating course content for *Web Application Development*
+              (COIS-3420H).
+              - January 2020 to April 2020
+
+          - title: Course Content Creator &mdash; Trent University
+            body: |-
+              Created lab content for *Digital World* (COIS-1010H), ushered
+              transition to web-hosting for all future lab content.
+              - July 2019 to August 2019
+
+          - title: Course Marker &mdash; Trent University
+            body: |-
+              Marked for *Programming for Computer Systems* (COIS-1020H).
+              - January 2019 to April 2019
+
+          # - title: Technology Sales Associate &mdash; Staples Canada
+          #   body: |-
+          #     Sold laptops, desktops, printers, tablets, and smartphones with
+          #     warranties, services, and accessories.
+          #     - August 2016 to August 2018
+
+  - header: Education
+    subsections:
+      - header: 2018-pres.
+        entries:
+          - title: Trent University
+            body: |-
+              B.Sc (Hon): Computer Science with Co-op &mdash; 86.28% CGPA
+              - *Computer Networking* (COIS-4310H)
+                - Multi-threaded, multi-client chat app entirely in C, including
+                  full Curses GUI for terminal
+              - *Systems Programming* (COIS-3380H)
+                - Low-level C programming and bash scripting
+              - *Web Application Development* (COIS-3420H)
+                - Backend, frontend, no-framework web-dev (full-stack)
+              - *Database Management* (COIS-3400H)
+                - RDBMS, SQL, query optimizations
+
+          # - *Modelling and Simulation* (COIS-4470H)
+          #   - Discrete-event and Monte-Carlo simulations, done in Python
+
+  - header: Other Achievements
+    subsections:
+      - header: Cotera&#46;io
+        entries:
+          - body: |-
+              Published a Vue single-page-application (SPA) using Firebase as a
+              backend. The app includes a fully responsive user-interface,
+              realtime data storage, user authentication, and more.
+
+              Can be viewed at [cotera.io](https://cotera.io)
+
+      - header: Languages
+        entries:
+          - body: |-
+              **English** &mdash; Native language, full comprehension and
+              speaking. Excellent grammar skills.  
+              **French** &mdash; Decent comprehension and speaking.  
+          # **Japanese** &mdash; Basic reading and listening comprehension.
+
+      - header: Awards
+        entries:
+          - title: D.E.L.F. / D.A.L.F. B1 Certified
+            body: |-
+              Officially bilingual, certified by the <span lang="fr">ministère
+              de l'Éducation et de la Jeunesse</span> in France.
