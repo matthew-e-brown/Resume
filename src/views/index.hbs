@@ -7,12 +7,14 @@
 <body>
   {{> header }}
 
-  <section>
-    <h2>Section One</h2>
-  </section>
+  {{#each sections }}
+    <section id="{{ make_section_id }}">
+      <h2 id="{{ make_header_id }}">{{ header }}</h2>
+      {{#each subsections }}
+        <div class="subsection">{{> subsection }}</div>
+      {{/each}}
+    </section>
+  {{/each}}
 
-  <section>
-    <h2>Section Two</h2>
-  </section>
 </body>
 </html>
