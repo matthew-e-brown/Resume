@@ -107,7 +107,14 @@ const renderView = async (target: ViewName) => {
 
   if (target == ViewName.Resume) {
     // if this is the resume, get the data for it
-    const resumeData = yaml.parse(await read(resumeDataPath));
+    let resumeData;
+    try {
+      resumeData = yaml.parse(await read(resumeDataPath));
+    } catch (error) {
+      console.error(error.message);
+      resumeData = {};
+    }
+
     data = { ...data, ...resumeData };
 
   } else {
@@ -138,7 +145,13 @@ const renderView = async (target: ViewName) => {
     data = { ...data, ...coverData, body: coverBody };
   }
 
-  const output = template(data);
+  let output;
+  try {
+    output = template(data);
+  } catch (error) {
+    console.error(error.message);
+    output = "An error occurred.\n" + `<pre>${error.message}</pre>`;
+  }
 
   partials.forEach(name => handlebars.unregisterPartial(name));
   helpers.forEach(name => handlebars.unregisterHelper(name));
@@ -200,15 +213,31 @@ const outputSass = async (isWatchMode: boolean) => {
 }
 
 
+const clearDist = async () => {
+
+  try {
+    await rm(distPath, { recursive: true, force: true });
+    await mkdir(distPath, { recursive: true });
+  } catch (error) {
+    if (error.code == 'EBUSY') {
+      const files = await readdir(distPath);
+      await Promise.all(files.map(f => {
+        return rm(path.join(distPath, f), { recursive: true });
+      }));
+    }
+  }
+
+  await mkdir(path.join(distPath, 'styles'), { recursive: true });
+}
+
+
 /**
  * Main function
  * @param argv The argv passed to node, with the first two sliced off.
  */
 const main = async (argv: string[]) => {
   // Remove the /dist/ directory first
-  await rm(distPath, { recursive: true, force: true });
-  await mkdir(distPath, { recursive: true });
-  await mkdir(path.join(distPath, 'styles'), { recursive: true });
+  await clearDist();
 
   if (
     argv.length !== 2 ||

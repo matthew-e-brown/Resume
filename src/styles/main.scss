@@ -1,4 +1,249 @@
+// The following values are to be set as if you were working with a real
+// document. The correct sizes, in rem, will be calculated. This means that
+// changing the root font size will scale the whole document as if it were a
+// 'pt' in a real document, just in pixels instead.
+
+$font-size: 12pt;     // The font size to use when computing digital sizes
+$width: 8.5in;        // The desired width of the real page
+$height: 11in;        // The desired height of the real page
+$padding-tb: 15mm;    // The top/bottom margin of the output page
+$padding-lr: 22.5mm;  // The left/right margin of the output page
+
+$text-color: rgb(18, 13, 13);   // All text colour
+$link-color: rgb(0, 97, 209);   // Colour of links when hovering
+$accent-1: rgb(0, 69, 134);     // Main title colour
+$accent-2: rgb(0, 102, 204);    // Section header (h2) colour
+$accent-3: rgb(118, 113, 113);  // Subsection header (h3) colour
+
+
+// ====  Body and Meta Styles  ====
+//
+// Styles that affect the body of the page and little more. Also includes some
+// print styling.
+
+
 :root {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 16px;
+
+  color: $text-color;
+  background-color: rgb(220, 236, 252);
+}
+
+#page {
+  box-sizing: border-box;
+  width: $width / $font-size * 1rem;
+  padding: ($padding-tb / $font-size * 1rem) ($padding-lr / $font-size * 1rem);
+
+  margin: 0 auto;
+  background-color: white;
+
+  @media not print {
+    min-height: $height / $font-size * 1rem;
+    box-shadow: 0.1em 0.25em 0.85em 0.12em rgba(14, 14, 14, 0.35);
+    border-radius: 0.5rem;
+  }
+
+  @media only print {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@page {
+  // The margins on the real page are 0 because we allow for the auto-left-right
+  // margins on the #page div to center the box: this way, we can have things
+  // jut into the margins should we so please.
+
+  width: $width;
+  height: $height;
+  margin: $padding-tb 0;
+}
+
+@media only print {
+  :root {
+    font-size: 12pt;
+    background: none !important;
+  }
+
+  a[href^="mailto:"], a[href^="tel:"] {
+    text-decoration-line: none;
+  }
+}
+
+
+// ====  Reset Styles  ====
+//
+// Some styles to reset default browser behaviour and provide sensible defaults.
+
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, p {
+  margin-block-start: 0;
+  margin-top: 0;
+  margin-block-end: 0;
+  margin-bottom: 0;
+}
+
+a {
+  color: $text-color;
+
+  @media (hover: hover) {
+    transition: color 125ms ease-in-out;
+    &:hover { color: $link-color }
+  }
+}
+
+// Styles taken from FontAwesome, not required when using kit
+// svg {
+//   fill: currentColor;
+//   display: inline-block;
+//   width: 1.25em;
+//   height: 1em;
+//   vertical-align: -0.125em;
+//   overflow: visible;
+//   text-align: center;
+// }
+
+section {
+  margin-top: 0.75rem;
+  &:last-child { margin-bottom: 0; }
+}
+
+
+// ====  General Styles  ====
+//
+// The styles for the rest of the resume. Generally speaking, these are laid out
+// vertically; as you go down the stylesheet here, you'll find the styles for
+// lower and lower on the page.
+
+h1 {
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 900;
+  font-size: 2.83rem;
+  line-height: 2.83rem;
+  margin-bottom: 0.75rem;
+
+  color: $accent-1;
+}
+
+#contact-grid {
+  display: grid;
+  column-gap: 0.35em;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+
+  padding: 0 1em;
+
+  .contact-entry {
+    display: grid;
+    grid-template-columns: 1.5em auto;
+    column-gap: 0.25em;
+    align-items: center;
+  }
+
+  // The icons
+  svg {
+    font-size: 1.25em;
+    color: rgb(66, 63, 63);
+  }
+
+  // The text
+  a, span {
+    justify-self: left;
+
+    padding: .15em 0 .15em .5em;
+    margin-right: 0.8em;
+
+    border-left: 0.075em solid $text-color;
+
+    white-space: nowrap;
+    text-overflow: clip;
+  }
+}
+
+h2 {
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  font-variant: small-caps;
+
+  line-height: 1.4rem;
+  letter-spacing: 0.2ch;
+
+  margin: .25em -0.5rem .25em -0.5rem;
+  padding: 0 0.5rem;
+
+  color: $accent-2;
+  border-bottom: 0.075em solid $text-color;
+}
+
+.subsection {
+  &:not(.no-header) {
+    display: grid;
+    grid-template-columns: 7.25em 1fr;
+  }
+
+  &.no-header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  +.no-header { margin-top: 0.275em; }
+
+  >* { padding: 0.3rem; }
+  >:first-child { padding-left: 0; }
+  >:last-child { padding-right: 0; }
+}
+
+// The h3's are the ones off in the left side
+h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: $accent-3;
+}
+
+// Above each chunk of body text; one per entry
+h4 {
+  font-size: 1rem;
+  margin-bottom: 0.1em;
+}
+
+.body-text {
+  font-size: 1rem;
+  margin-bottom: 0.4em;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 2.4em;
+  padding-inline-start: 2.4em;
+
+  margin: 0;
+  li { margin: 0; }
+
+  ul li {
+    list-style-type: none;
+    position: relative;
+
+    &::before, >svg {
+      content: "\f178";
+      font-family: 'Font Awesome 5 Pro';
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    // The pseudo-element is replaced with SVG
+    &::before { display: none; }
+    svg {
+      position: absolute;
+      left: -1.4em;
+      top: 0.25em;
+    }
+  }
 }

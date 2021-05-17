@@ -1,1 +1,12 @@
 <h1>{{ name }}</h1>
+
+{{#if contacts }}
+  <div id="contact-grid">
+    {{#each contacts }}
+      <div class="contact-entry">
+        <i class="{{ icon.style }} {{ icon.name }} fa-fw"></i>
+        <a href="{{{ url }}}">{{{ text }}}</a>
+      </div>
+    {{/each}}
+  </div>
+{{/if}}

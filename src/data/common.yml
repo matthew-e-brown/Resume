@@ -1,3 +1,40 @@
 ---
 
 name: Matthew Brown
+contacts:
+
+  - text: github.com/matthew-e-brown
+    url: https://github.com/matthew-e-brown
+    icon:
+      style: 'fab'
+      name: 'fa-github'
+
+  - text: matthew.e.brown.17@gmail.com
+    url: mailto:matthew.e.brown.17@gmail.com
+    icon:
+      style: 'fas'
+      name: 'fa-paper-plane'
+
+  - text: /in/matthewebrown17
+    url: https://www.linkedin.com/in/matthewebrown17
+    icon:
+      style: 'fab'
+      name: 'fa-linkedin'
+
+  - text: +1 (613) 849-8270
+    url: tel:+16138498270
+    icon:
+      style: 'fas'
+      name: 'fa-mobile'
+
+  - text: /matthew-e-brown
+    url: https://stackoverflow.com/users/10549827/matthew-e-brown
+    icon:
+      style: 'fab'
+      name: 'fa-stack-overflow'
+
+  - text: matthew-brown.net
+    url: https://matthew-brown.net
+    icon:
+      style: 'far'
+      name: 'fa-globe'

@@ -5,16 +5,35 @@
   <title>{{ name }} | Resume</title>
 </head>
 <body>
-  {{> header }}
 
-  {{#each sections }}
-    <section id="{{ make_section_id }}">
-      <h2 id="{{ make_header_id }}">{{ header }}</h2>
-      {{#each subsections }}
-        <div class="subsection">{{> subsection }}</div>
-      {{/each}}
-    </section>
-  {{/each}}
+  <div id="page">
+    {{!-- Include name/title and contact-grid --}}
+    {{> header }}
+
+    {{#each sections }}
+      <section id="{{ make_section_id }}">
+
+        <h2 id="{{ make_heading_id }}">{{{ inline_markdown header }}}</h2>
+
+        {{#each subsections }}
+          <div class="subsection {{#unless header }}no-header{{/unless}}">
+            {{!-- The left-hand block --}}
+            {{#if header }}<h3>{{{ inline_markdown header }}}</h3>{{/if}}
+
+            {{!-- The right-hand block --}}
+            <div>
+              {{#each entries }}
+                {{#if title }} <h4>{{{ title }}}</h4> {{/if}}
+                <div class="body-text">{{{ markdown body }}}</div>
+              {{/each}}
+            </div>
+          </div>
+        {{/each}}
+        {{!-- End subsections --}}
+
+      </section>
+    {{/each}}
+  </div>
 
 </body>
 </html>

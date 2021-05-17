@@ -10,11 +10,10 @@ sections:
           - title: Web Development Specific
             body: |-
               - Expert with HTML, CSS, JavaScript
+                - Including Sass and TypeScript
                 - Experienced Flexbox and CSS Grid
                 - Caught up with ES2019
-                - Sass as well as CSS; TypeScript as well as JavaScript
-              - Intermediate with Vue 2 and 3 (including with the Composition
-                API)
+              - Skilled with Vue 2 and 3 (including the Composition API)
               - Experienced with vanilla PHP
 
           - title: General
@@ -62,8 +61,7 @@ sections:
           - title: Cybersecurity Rover &mdash; Trent University
             body: |-
               Worked with Trent IT to improve cybersecurity measures for both
-              staff and students during the transition to remote-learning during
-              COVID-19.
+              staff and students during the remote transition of the pandemic.
               - July 2020 to September 2020
 
       - header: Part-time
@@ -115,14 +113,12 @@ sections:
 
   - header: Other Achievements
     subsections:
-      - header: Cotera&#46;io
+      - header: "[Cotera&#46;io](https://cotera.io)"
         entries:
           - body: |-
               Published a Vue single-page-application (SPA) using Firebase as a
               backend. The app includes a fully responsive user-interface,
-              realtime data storage, user authentication, and more.
-
-              Can be viewed at [cotera.io](https://cotera.io)
+              realtime data storage, user authentication, and works as a PWA.
 
       - header: Languages
         entries:
