@@ -5,7 +5,7 @@ import sass from 'sass';
 import yaml from 'yaml';
 import marked from 'marked';
 import handlebars from 'handlebars';
-import { html_beautify } from 'js-beautify';
+import { minify } from 'html-minifier';
 import chokidar from 'chokidar';
 
 const enum ViewName { Resume, CoverLetter };
@@ -162,14 +162,9 @@ const renderView = async (target: ViewName) => {
 
 const outputView = async (target: ViewName) => {
   const rendered = await renderView(target);
-  const output = html_beautify(rendered, {
-    eol: '\n',
-    indent_size: 2,
-    end_with_newline: true,
-    preserve_newlines: false,
-    wrap_line_length: 80,
-    extra_liners: [ 'head', 'body', '/html', 'section' ]
-  });
+  const output = minify(rendered, {
+    caseSensitive: true, collapseWhitespace: true
+  })
 
   const name = target == ViewName.Resume ? 'index.html' : 'cover-letter.html';
   await writeFile(path.join(distPath, name), output, { encoding: 'utf-8' });
@@ -186,25 +181,11 @@ const outputSass = async (isWatchMode: boolean) => {
 
   await Promise.all(files.filter(f => !f.startsWith('_')).map(async name => {
     const file = path.join('src/styles', name);
-    const parsed = path.parse(name);
-
-    const outFile = `styles/${parsed.name}.min.css`;
-    const mapFile = outFile + '.map';
+    const outFile = `${path.parse(name).name}.min.css`;
 
     try {
-      const result = sass.renderSync({
-        file,
-        ...(isWatchMode && { outFile }),
-        sourceMap: isWatchMode,
-        outputStyle: isWatchMode ? 'expanded' : 'compressed'
-      });
-
-      await Promise.all([
-        writeFile(path.join(distPath, outFile), result.css),
-        isWatchMode
-          ? writeFile(path.join(distPath, mapFile), result.map)
-          : Promise.resolve()
-      ]);
+      const result = sass.renderSync({ file, outputStyle: 'compressed' });
+      await writeFile(path.join(distPath, outFile), result.css);
     } catch (error) {
       console.error(`\n${error.formatted}\n`);
     }
@@ -214,20 +195,19 @@ const outputSass = async (isWatchMode: boolean) => {
 
 
 const clearDist = async () => {
-
   try {
     await rm(distPath, { recursive: true, force: true });
     await mkdir(distPath, { recursive: true });
   } catch (error) {
     if (error.code == 'EBUSY') {
+      // If busy, just erase the contents. This happens when serving the folder
+      // over a local server.
       const files = await readdir(distPath);
       await Promise.all(files.map(f => {
         return rm(path.join(distPath, f), { recursive: true });
       }));
     }
   }
-
-  await mkdir(path.join(distPath, 'styles'), { recursive: true });
 }
 
 

@@ -1,3 +1,9 @@
+// https://stackoverflow.com/a/30421654/10549827
+@charset "UTF-8";
+@function unicode($str) {
+  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
+}
+
 // The following values are to be set as if you were working with a real
 // document. The correct sizes, in rem, will be calculated. This means that
 // changing the root font size will scale the whole document as if it were a
@@ -230,7 +236,7 @@ ul {
     position: relative;
 
     &::before, >svg {
-      content: "\f178";
+      content: unicode("\f178");
       font-family: 'Font Awesome 5 Pro';
       font-style: normal;
       font-variant: normal;

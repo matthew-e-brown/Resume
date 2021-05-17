@@ -19,16 +19,18 @@
   "scripts": {
     "watch": "ts-node compile.ts watch",
     "build": "ts-node compile.ts build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build -- index && gh-pages -d dist"
   },
   "devDependencies": {
+    "@types/html-minifier": "^4.0.0",
     "@types/js-beautify": "^1.13.1",
     "@types/marked": "^2.0.2",
     "@types/sass": "^1.16.0",
     "@types/yaml": "^1.9.7",
     "chokidar": "^3.5.1",
+    "gh-pages": "^3.1.0",
     "handlebars": "^4.7.7",
-    "js-beautify": "^1.13.13",
+    "html-minifier": "^4.0.0",
     "marked": "^2.0.3",
     "sass": "^1.32.13",
     "ts-node": "^9.1.1",
