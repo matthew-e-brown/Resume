@@ -113,7 +113,7 @@ sections:
 
   - header: Other Achievements
     subsections:
-      - header: "[Cotera&#46;io](https://cotera.io)"
+      - header: "[Cotera&#46;io](https://cotera.io/about)"
         entries:
           - body: |-
               Published a Vue single-page-application (SPA) using Firebase as a

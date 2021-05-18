@@ -189,6 +189,8 @@ h2 {
   &:not(.no-header) {
     display: grid;
     grid-template-columns: 7.25em 1fr;
+    >:first-child { padding-left: 0; }
+    >:last-child { padding-right: 0; }
   }
 
   &.no-header {
@@ -197,10 +199,7 @@ h2 {
   }
 
   +.no-header { margin-top: 0.275em; }
-
   >* { padding: 0.3rem; }
-  >:first-child { padding-left: 0; }
-  >:last-child { padding-right: 0; }
 }
 
 // The h3's are the ones off in the left side
