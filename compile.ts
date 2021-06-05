@@ -228,6 +228,8 @@ const main = async (argv: string[]) => {
       "Incorrect arguments. Should be in the form of:\n" +
       "npm run {watch|build} -- {index|cover|both}"
     );
+
+    return;
   }
 
   const modeArg = argv[0] as 'watch' | 'build';
