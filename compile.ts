@@ -173,10 +173,8 @@ const outputView = async (target: ViewName) => {
 
 /**
  * Builds all Sass files in the /src/styles folder.
- * @param isWatchMode Whether or not the output should be compressed, among
- * other tweaks.
  */
-const outputSass = async (isWatchMode: boolean) => {
+const outputSass = async () => {
   const files = await readdir(path.join(__dirname, 'src/styles'));
 
   await Promise.all(files.filter(f => !f.startsWith('_')).map(async name => {
@@ -184,7 +182,11 @@ const outputSass = async (isWatchMode: boolean) => {
     const outFile = `${path.parse(name).name}.min.css`;
 
     try {
-      const result = sass.renderSync({ file, outputStyle: 'compressed' });
+      const result = sass.renderSync({
+        file,
+        outputStyle: 'compressed',
+        includePaths: [ 'node_modules' ]
+      });
       await writeFile(path.join(distPath, outFile), result.css);
     } catch (error) {
       console.error(`\n${error.formatted}\n`);
@@ -245,7 +247,7 @@ const main = async (argv: string[]) => {
   }
 
   console.log("Building 'src' directory...");
-  await Promise.all([ buildHandlebars(), outputSass(modeArg == 'watch') ]);
+  await Promise.all([ buildHandlebars(), outputSass() ]);
 
   if (modeArg == 'build') console.log("Done!");
   else {
@@ -264,7 +266,7 @@ const main = async (argv: string[]) => {
     sentinel.on('change', async file => {
       if (path.basename(path.dirname(file)) == 'styles') {
         console.log(`${path.basename(file)} changed. Recompiling Sass...`)
-        await outputSass(false);
+        await outputSass();
       } else {
         console.log(`${path.basename(file)} changed. Rebuilding views...`);
         await buildHandlebars();

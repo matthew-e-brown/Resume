@@ -1,8 +1,11 @@
-// https://stackoverflow.com/a/30421654/10549827
 @charset "UTF-8";
+@use "normalize.css/normalize.css";
+
+// https://stackoverflow.com/a/30421654/10549827
 @function unicode($str) {
   @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
 }
+
 
 // The following values are to be set as if you were working with a real
 // document. The correct sizes, in rem, will be calculated. This means that
@@ -32,6 +35,7 @@ $accent-3: rgb(118, 113, 113);  // Subsection header (h3) colour
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 16px;
+  line-height: 1.4;
 
   color: $text-color;
   background-color: rgb(220, 236, 252);
@@ -128,7 +132,8 @@ h1 {
   font-family: 'Catamaran', sans-serif;
   font-weight: 900;
   font-size: 2.83rem;
-  line-height: 2.83rem;
+  line-height: 1;
+
   margin-bottom: 0.75rem;
 
   color: $accent-1;
@@ -172,10 +177,10 @@ h1 {
 h2 {
   font-family: 'Catamaran', sans-serif;
   font-weight: 900;
-  font-size: 1.3rem;
   font-variant: small-caps;
+  font-size: 1.3rem;
+  line-height: 1.1;
 
-  line-height: 1.4rem;
   letter-spacing: 0.2ch;
 
   margin: .25em -0.5rem .25em -0.5rem;
